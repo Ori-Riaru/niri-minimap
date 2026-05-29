@@ -1,0 +1,20 @@
+{
+  "parinfer.defaultMode": "SMART_MODE",
+  "cSpell.words": [
+    "deflisten",
+    "defpoll",
+    "defwidget",
+    "defwindow",
+    "halign",
+    "hexpand",
+    "inital",
+    "kasa",
+    "notif",
+    "serde",
+    "systray",
+    "vexpand"
+  ],
+  "rust-analyzer.checkOnSave": true,
+  "rust-analyzer.diagnostics.experimental.enable": true,
+  "rust-analyzer.diagnostics.styleLints.enable": true
+}

@@ -1,0 +1,8 @@
+[package]
+name = "niri-minimap"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+niri-ipc = "26.4.0"
