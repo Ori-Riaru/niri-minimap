@@ -204,7 +204,7 @@ impl Display for NiriState {
                             .replace('\'', "\\'"); // FIXME do better escaping
 
                         result += format!(
-                            "(button :class 'window {app_id} {urgent_class} {focused_class}' :height {height} :width {width} :tooltip '{tooltip}' :onclick 'niri msg action focus-window --id {window_id}' :onmiddleclick 'niri msg action close-window --id {window_id}' (scroll (image :icon '{icon}')))"
+                            "(button :class 'window {app_id} {urgent_class} {focused_class}' :height {height} :width {width} :cursor 'pointer' :tooltip '{tooltip}' :onclick 'niri msg action focus-window --id {window_id}' :onmiddleclick 'niri msg action close-window --id {window_id}' (scroll (image :icon '{icon}')))"
                         ).as_str();
                     }
                     result += "))"
