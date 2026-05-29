@@ -135,6 +135,7 @@ impl NiriState {
                 _ => (),
             }
 
+            // Render changes
             println!("{}", self);
         }
     }
@@ -189,19 +190,22 @@ impl Display for NiriState {
                 for column in workspace.values() {
                     result += "(scroll :vscroll false (box :class 'column' :space-evenly false :hexpand false :orientation 'horizontal'";
                     for window in column.values() {
+                        let width = (window.layout.tile_size.1 / 50.0) as u32;
+                        let height = (window.layout.tile_size.0 / 40.0) as u32;
+                        let app_id = window.app_id.clone().unwrap_or("".into());
+                        let window_id = window.id;
+                        let focused_class = if window.is_focused { "focused" } else { "" };
+                        let urgent_class = if window.is_urgent { "urgent" } else { "" };
+                        let icon = window.app_id.clone().unwrap_or("".into());
+                        let tooltip = window
+                            .title
+                            .clone()
+                            .unwrap_or("".into())
+                            .replace('\'', "\\'"); // FIXME do better escaping
+
                         result += format!(
-                            "(button :class 'window {} {} {}' :tooltip '{}' :height {} :width {} :onclick 'niri msg action focus-window --id {}' :onmiddleclick 'niri msg action close-window --id {}' (scroll (image :icon '{}')))",
-                            if window.is_focused { "focused" } else { "" },
-                            if window.is_urgent { "urgent" } else { "" },
-                            window.app_id.clone().unwrap_or("".into()),
-                            window.title.clone().unwrap_or("".into()).replace('\'', "\\'"),
-                            (window.layout.tile_size.0 / 40.0) as u32,
-                            (window.layout.tile_size.1 / 50.0) as u32,
-                            window.id,
-                            window.id,
-                            window.app_id.clone().unwrap(),
-                        )
-                        .as_str();
+                            "(button :class 'window {app_id} {urgent_class} {focused_class}' :height {height} :width {width} :tooltip '{tooltip}' :onclick 'niri msg action focus-window --id {window_id}' :onmiddleclick 'niri msg action close-window --id {window_id}' (scroll (image :icon '{icon}')))"
+                        ).as_str();
                     }
                     result += "))"
                 }
