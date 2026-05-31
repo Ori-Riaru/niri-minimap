@@ -5,11 +5,13 @@
     "defpoll",
     "defwidget",
     "defwindow",
+    "eventbox",
     "halign",
     "hexpand",
     "inital",
     "kasa",
     "notif",
+    "onmiddleclick",
     "serde",
     "systray",
     "vexpand"

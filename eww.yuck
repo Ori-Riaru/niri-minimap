@@ -1,0 +1,12 @@
+(deflisten windows :inital ""
+	"niri-minimap"
+)
+
+(defwidget minimap [] 
+	(box :orientation "vertical" 
+		 :class "minimap"
+		 :space-evenly false
+		 :width 1
+		(literal :content windows)
+	)
+)
