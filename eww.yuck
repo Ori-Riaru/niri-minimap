@@ -1,5 +1,5 @@
 (deflisten windows :inital ""
-	"niri-minimap"
+	"niri-minimap --output '<YOUR OUTPUT>' --height <DESIRED WINDOW HEIGHT>"
 )
 
 (defwidget minimap [] 
