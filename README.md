@@ -52,27 +52,30 @@ home.packages = [inputs.niri-minimap.packages.<system>.default];
 1. Add this css to your existing `scss` file, customizing it as you wish
 
 ```scss
-* {
-  min-width: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-}
-
 .minimap {
 }
 
+.divider {
+  min-height: 2px;
+  margin: 5px;
+  border-radius: 3px;
+  background: #333;
+}
+
 .window {
+  margin: 2px;
+  margin-bottom: 0;
   border: 2px solid #3a3a3a;
   border-radius: 2px;
+
   background: #333;
 
-  .focused {
+  &.focused {
     border: 2px solid #b0aafc;
     background: #46447f;
   }
 
-  .urgent {
+  &.urgent {
     border: 2px solid #e06b72;
     background: #2e1516;
   }
@@ -80,11 +83,12 @@ home.packages = [inputs.niri-minimap.packages.<system>.default];
 
 // Windows can be targeted using their a modified app id which allows for styling
 // each application individually.
+
 .window.vivaldi-stable {
   border: 2px solid #573033;
   background: #2e1516;
 
-  .focused {
+  &.focused {
     border: 2px solid #e06b72;
     background: #331617;
   }
@@ -94,7 +98,7 @@ home.packages = [inputs.niri-minimap.packages.<system>.default];
   border: 2px solid #395674;
   background: #1a2b3d;
 
-  .focused {
+  &.focused {
     border: 2px solid #88bddf;
     background: #395674;
   }
@@ -104,17 +108,10 @@ home.packages = [inputs.niri-minimap.packages.<system>.default];
   border: 2px solid #564b28;
   background: #302712;
 
-  .focused {
+  &.focused {
     border: 2px solid #f4da9d;
     background: #564b28;
   }
-}
-
-.divider {
-  min-height: 2px;
-  margin: 5px;
-  border-radius: 3px;
-  background: #333;
 }
 ```
 

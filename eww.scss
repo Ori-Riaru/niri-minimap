@@ -2,26 +2,29 @@
 /* stylelint-disable no-invalid-double-slash-comments */
 /* stylelint-disable selector-class-pattern */
 /* stylelint-disable property-no-unknown */
-* {
-    min-width: 0;
-    min-height: 0;
-    margin: 0;
-    padding: 0;
-}
-
 .minimap { }
 
+.divider {
+    min-height: 2px;
+    margin: 5px;
+    border-radius: 3px;
+    background: #333;
+}
+
 .window {
+    margin: 2px;
+    margin-bottom: 0;
     border: 2px solid #3A3A3A;
     border-radius: 2px;
+
     background: #333; 
 
-    .focused {
+    &.focused {
         border: 2px solid #b0aafc;
         background: #46447f;
     }
 
-    .urgent {
+    &.urgent {
         border: 2px solid #e06b72;
         background: #2e1516;
     }
@@ -34,7 +37,7 @@
     border: 2px solid #573033;
     background: #2e1516;
 
-    .focused {
+    &.focused {
         border: 2px solid #e06b72;
         background: #331617;
     }
@@ -44,7 +47,7 @@
     border: 2px solid #395674;
     background: #1a2b3d;
 
-    .focused {
+    &.focused {
         border: 2px solid #88bddf;
         background: #395674;
     }
@@ -54,15 +57,8 @@
     border: 2px solid #564b28;
     background: #302712;
 
-    .focused {
+    &.focused {
         border: 2px solid #f4da9d;
         background: #564b28;
     }
-}
-
-.divider {
-    min-height: 2px;
-    margin: 5px;
-    border-radius: 3px;
-    background: #333;
 }
