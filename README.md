@@ -46,7 +46,7 @@ home.packages = [inputs.niri-minimap.packages.<system>.default];
 > Run the following to list available output names
 >
 > ```bash
-> niri msg Outputs
+> niri msg outputs
 > ```
 
 1. Add this css to your existing `scss` file, customizing it as you wish
