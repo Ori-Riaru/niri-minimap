@@ -210,9 +210,17 @@ impl Display for Minimap {
             };
 
             let output = self.outputs.get(&output_id).unwrap(); // FIXME: unwrap
+            let mut output_full_name = format!("{} {}", output.make, output.model);
+            if let Some(serial) = output.serial.clone() {
+                output_full_name = format!("{} {}", output_full_name, serial)
+            };
             let target_output = self.config.output.clone().unwrap_or("".into());
-            if !(target_output == "" || target_output == *output_id || target_output == output.name)
+            if !(target_output == ""
+                || target_output == *output_id
+                || Some(target_output.clone()) == output.serial
+                || target_output == output_full_name)
             {
+                dbg!(output);
                 continue;
             }
 
@@ -249,8 +257,7 @@ impl Display for Minimap {
 
             let o = self.outputs.get(output_key).unwrap(); // FIXME: unwrap
             let logical_output: niri_ipc::LogicalOutput = o.logical.unwrap(); // FIXME: unwrap
-            let scale =
-                logical_output.height as f64 / self.config.height as f64;
+            let scale = logical_output.height as f64 / self.config.height as f64;
 
             for workspace in output.values() {
                 if workspace.columns.len() != 0 {
