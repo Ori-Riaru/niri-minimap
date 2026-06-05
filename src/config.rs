@@ -18,7 +18,7 @@ pub struct Config {
     pub widget: Widget,
     /// Only display windows for this output (niri msg outputs to list outputs)
     #[arg(short, long, default_value = None)]
-    pub output: Option<String>,
+    pub output: Option<Vec<String>>,
     /// Target window height in pixels
     #[arg(short('H'), long, default_value_t = 46)]
     pub height: u64,

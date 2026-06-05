@@ -214,14 +214,16 @@ impl Display for Minimap {
             if let Some(serial) = output.serial.clone() {
                 output_full_name = format!("{} {}", output_full_name, serial)
             };
-            let target_output = self.config.output.clone().unwrap_or("".into());
-            if !(target_output == ""
-                || target_output == *output_id
-                || Some(target_output.clone()) == output.serial
-                || target_output == output_full_name)
-            {
-                dbg!(output);
-                continue;
+
+            if let Some(target_outputs) = self.config.output.clone() {
+                let a_target = target_outputs.iter().any(|target_output| {
+                    *target_output == *output_id
+                        || Some(target_output.clone()) == output.serial
+                        || *target_output == *output_full_name
+                });
+                if !a_target {
+                    continue;
+                }
             }
 
             if let Some((column_id, row_id)) = window.layout.pos_in_scrolling_layout {
