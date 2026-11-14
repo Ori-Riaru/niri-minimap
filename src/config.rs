@@ -9,6 +9,7 @@ pub enum Orientation {
 #[derive(Debug, Clone, clap::ValueEnum)]
 pub enum Widget {
     Minimap,
+    Calendar,
     Downloads,
 }
 
