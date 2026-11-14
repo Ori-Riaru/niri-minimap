@@ -34,7 +34,7 @@ impl Downloads {
                     gid,
                     event: Event::Start,
                 } => {
-                    println!("");
+                    println!("(:text '')");
                     self.downloads.push(gid);
                 }
                 Notification::Aria2 {
@@ -49,9 +49,7 @@ impl Downloads {
                         println!("");
                     }
                 }
-                notification => {
-                    println!("{:#?}", notification);
-                }
+                _ => {}
             };
         }
 
